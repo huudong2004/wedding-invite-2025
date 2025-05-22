@@ -1,52 +1,89 @@
-<!DOCTYPE html>
-<html lang="vi">
+<!DOCTYPE html><html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Thiệp Mời Đám Cưới</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thiệp cưới - Hữu Đông</title>
   <style>
     body {
-      background-color: #d0f0ff;
-      font-family: Arial, sans-serif;
-      text-align: center;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #fceabb, #f8b500);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       padding: 20px;
       color: #333;
     }
-    h1 {
-      color: #004488;
+    .card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
     }
-    .countdown {
-      font-size: 1.5em;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .qr img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      margin: 10px 0;
+    }
+    .info {
       margin-top: 20px;
-      color: #b80000;
+    }
+    .copy-btn {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .copy-btn:hover {
+      background: #45a049;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <h1>Thiệp Mời Lễ Thành Hôn</h1>
-  <p>Trân trọng kính mời quý gia đình đến dự lễ cưới của chúng tôi</p>
-  <h2>Hậu Đông & Trần Quỳnh Như</h2>
-  <p>Vào lúc <strong>11h00 - 13h00</strong>, ngày <strong>16 tháng 06 năm 2025</strong></p>
-  <p>Địa điểm: Tư gia, Ấp Mỹ Quí - Xã Hiệp Mỹ Tây - H. Cầu Ngang - T. Trà Vinh</p>
+  <div class="card">
+    <h2>Thiệp cưới</h2>
+    <p><strong>Trân trọng kính mời</strong></p>
+    <p>Tới dự lễ thành hôn của chúng tôi:</p>
+    <h3>Hữu Đông & Người thương</h3>
+    <p>Vào ngày: <strong>Chủ Nhật, 09/11/2025</strong> (Âm lịch: <strong>18/09/2025</strong>)</p>
+    <p>Địa điểm: Nhà trai - Trà Vinh</p><div class="qr">
+  <h4>Chuyển khoản mừng cưới</h4>
+  <img src="vietcombank_qr.png" alt="QR chuyển khoản Vietcombank" />
+  <div class="info">
+    <p><strong>NGUYEN HUU DONG</strong></p>
+    <p>STK: <strong>1034912011</strong></p>
+    <p>Nội dung: <em>Trăm năm hạnh phúc - [Tên bạn]</em></p>
+    <button class="copy-btn" onclick="copyText()">Sao chép nội dung</button>
+  </div>
+</div>
 
-  <div class="countdown" id="countdown"></div>
+<div class="footer">
+  Cảm ơn bạn đã chung vui cùng chúng tôi!
+</div>
 
-  <script>
-    const weddingDate = new Date("2025-06-16T11:00:00").getTime();
-    const countdown = document.getElementById("countdown");
-    setInterval(() => {
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
-      if (distance < 0) {
-        countdown.innerHTML = "Hôn lễ đã diễn ra!";
-        return;
-      }
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      countdown.innerHTML = `Còn lại: ${days} ngày ${hours} giờ ${minutes} phút ${seconds} giây`;
-    }, 1000);
-  </script>
-</body>
+  </div>  <script>
+    function copyText() {
+      const content = "Trăm năm hạnh phúc - [Tên bạn]";
+      navigator.clipboard.writeText(content).then(() => {
+        alert("Đã sao chép nội dung chuyển khoản!");
+      });
+    }
+  </script></body>
 </html>

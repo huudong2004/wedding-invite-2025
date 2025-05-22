@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thiệp Mời Đám Cưới</title>
+  <style>
+    body {
+      background-color: #d0f0ff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      color: #004488;
+    }
+    .countdown {
+      font-size: 1.5em;
+      margin-top: 20px;
+      color: #b80000;
+    }
+  </style>
+</head>
+<body>
+  <h1>Thiệp Mời Lễ Thành Hôn</h1>
+  <p>Trân trọng kính mời quý gia đình đến dự lễ cưới của chúng tôi</p>
+  <h2>Hậu Đông & Trần Quỳnh Như</h2>
+  <p>Vào lúc <strong>11h00 - 13h00</strong>, ngày <strong>16 tháng 06 năm 2025</strong></p>
+  <p>Địa điểm: Tư gia, Ấp Mỹ Quí - Xã Hiệp Mỹ Tây - H. Cầu Ngang - T. Trà Vinh</p>
+
+  <div class="countdown" id="countdown"></div>
+
+  <script>
+    const weddingDate = new Date("2025-06-16T11:00:00").getTime();
+    const countdown = document.getElementById("countdown");
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+      if (distance < 0) {
+        countdown.innerHTML = "Hôn lễ đã diễn ra!";
+        return;
+      }
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      countdown.innerHTML = `Còn lại: ${days} ngày ${hours} giờ ${minutes} phút ${seconds} giây`;
+    }, 1000);
+  </script>
+</body>
+</html>

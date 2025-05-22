@@ -29,10 +29,11 @@
       max-width: 700px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-    .qr img {
+    .qr img, .album img {
       width: 100%;
       max-width: 300px;
       border-radius: 12px;
+      margin: 0.5rem;
     }
     .copy-btn {
       background-color: #00796b;
@@ -51,6 +52,11 @@
       margin-top: 2rem;
       color: #555;
     }
+    .countdown {
+      font-size: 1.4rem;
+      margin: 1rem 0;
+      color: #d32f2f;
+    }
     @media (max-width: 500px) {
       h1 {
         font-size: 2rem;
@@ -61,7 +67,10 @@
     }
   </style>
 </head><body>
-  <h1>Thiệp Mời</h1>  <div class="section">
+  <h1>Thiệp Mời</h1>  <div class="section countdown">
+    Đếm ngược tới ngày cưới:<br>
+    <span id="countdown"></span>
+  </div>  <div class="section">
     <h2>Trân trọng kính mời: Quý Gia Đình</h2>
     <p>Vui lòng đến dự buổi tiệc rượu chung vui cùng gia đình chúng tôi tại:</p>
     <p><strong>Ấp Mỹ Quí - Xã Hiệp Mỹ Tây<br>H. Cầu Ngang - T. Trà Vinh</strong></p>
@@ -84,6 +93,11 @@
     <p><strong>Nguyễn Hữu Đông</strong><br>Số tài khoản: <strong>1034912011</strong><br>Ngân hàng Vietcombank</p>
     <button class="copy-btn" onclick="copyContent()">Sao chép nội dung: "Trăm năm hạnh phúc + tên bạn"</button>
     <p id="copied" style="display:none; color: green;">Đã sao chép!</p>
+  </div>  <div class="section album">
+    <h2>Album ảnh cưới</h2>
+    <img src="album1.jpg" alt="Ảnh cưới 1">
+    <img src="album2.jpg" alt="Ảnh cưới 2">
+    <img src="album3.jpg" alt="Ảnh cưới 3">
   </div>  <div class="footer">
     Thiệp cưới thiết kế bởi gia đình Nguyễn Hữu Đông & Trần Quỳnh Như - 2025
   </div>  <script>
@@ -96,4 +110,26 @@
         }, 2000);
       });
     }
+
+    function updateCountdown() {
+      const weddingDate = new Date("2025-06-16T09:00:00").getTime();
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance < 0) {
+        document.getElementById("countdown").innerHTML = "Hôn lễ đã diễn ra";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        days + " ngày " + hours + " giờ " + minutes + " phút " + seconds + " giây";
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
   </script></body></html>

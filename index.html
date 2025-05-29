@@ -225,8 +225,12 @@
 <div id="bank" class="page" style="display: none;">
   <h2>Chuyển khoản mừng cưới</h2>
   <img src="https://i.ibb.co/7Js7TmQr/Screenshot-2025-05-22-11-30-14-991-com-VCB.png" alt="QR Vietcombank" width="200">
-  <p><strong>Nguyễn Hữu Đông</strong><br>Số tài khoản: <strong>1034912011</strong><br>Ngân hàng Vietcombank</p>
-  <p>Nội dung chuyển khoản: "Trăm năm hạnh phúc + [Tên bạn]"</p>
+  <p><strong>NGUYEN HUU DONG</strong></p>
+  <p>Ngân hàng: Vietcombank</p>
+  <p onclick="copyToClipboard('1034912011')" style="cursor: pointer; color: #007bff; font-weight: bold;">
+    Số tài khoản: 1034912011 (Bấm để sao chép)
+  </p>
+  <p>Nội dung chuyển khoản: "[Tên bạn]"</p>
 </div>
 <!-- Album ảnh -->
 <div id="album" class="page" style="display: none;">
@@ -381,7 +385,15 @@
     showPage('home');
   });
 </script>
-
+<script>
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(function () {
+      alert('Đã sao chép: ' + text);
+    }, function (err) {
+      alert('Không thể sao chép: ', err);
+    });
+  }
+</script>
 </div>
   </html>
   

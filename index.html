@@ -401,5 +401,58 @@
   }
 </script>
 </div>
+  <style>
+  .heart {
+    width: 20px;
+    height: 20px;
+    position: fixed;
+    animation: fly 1s ease-out forwards;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  .heart::before, .heart::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 16px;
+    background: red;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .heart::before {
+    left: 10px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+
+  .heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+  }
+
+  @keyframes fly {
+    0% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-100px) scale(1.5);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('click', function (e) {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.style.left = (e.clientX - 10) + 'px';
+    heart.style.top = (e.clientY - 10) + 'px';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 1000);
+  });
+</script>
   </html>
   

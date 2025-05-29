@@ -401,12 +401,12 @@
   }
 </script>
 </div>
-  <style>
+<style>
   .heart {
     width: 20px;
     height: 20px;
     position: fixed;
-    animation: fly 1s ease-out forwards;
+    animation: fly 2s linear forwards;
     pointer-events: none;
     z-index: 9999;
   }
@@ -416,7 +416,7 @@
     position: absolute;
     width: 10px;
     height: 16px;
-    background: red;
+    background: pink;
     border-radius: 10px 10px 0 0;
   }
 
@@ -439,20 +439,23 @@
     }
     100% {
       opacity: 0;
-      transform: translateY(-100px) scale(1.5);
+      transform: translateY(-150px) scale(1.5);
     }
   }
 </style>
 
 <script>
-  document.addEventListener('click', function (e) {
+  function createHeart() {
     const heart = document.createElement('div');
     heart.className = 'heart';
-    heart.style.left = (e.clientX - 10) + 'px';
-    heart.style.top = (e.clientY - 10) + 'px';
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.top = window.innerHeight + 'px';
     document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 1000);
-  });
+
+    setTimeout(() => heart.remove(), 2000);
+  }
+
+  setInterval(createHeart, 300); // Tạo 1 trái tim mỗi 300ms
 </script>
   </html>
   

@@ -162,7 +162,34 @@
   };
 
   setInterval(createPetal, 200); // Tạo hoa rơi mỗi 300ms
-</script>
+</script><!-- Trang chủ -->
+<div id="home" class="page" style="display: block;">
+  <!-- Nội dung trang thiệp (như bạn đã có) -->
+</div>
+
+<!-- Chuyển khoản -->
+<div id="bank" class="page" style="display: none;">
+  <h2>Chuyển khoản mừng cưới</h2>
+  <img src="https://i.ibb.co/7Js7TmQr/Screenshot-2025-05-22-11-30-14-991-com-VCB.png" alt="QR Vietcombank" width="200">
+  <p><strong>Nguyễn Hữu Đông</strong><br>Số tài khoản: <strong>1034912011</strong><br>Ngân hàng Vietcombank</p>
+  <p>Nội dung chuyển khoản: "Trăm năm hạnh phúc + [Tên bạn]"</p>
+</div>
+
+<!-- Liên hệ -->
+<div id="contact" class="page" style="display: none;">
+  <h2>Thông tin liên hệ</h2>
+  <p>Chú rể: Nguyễn Hữu Đông - 033 4243 506</p>
+</div>
+
+<!-- Người đã chuyển -->
+<div id="donors" class="page" style="display: none;">
+  <h2>Danh sách người đã chuyển khoản</h2>
+  <ul>
+    <li>Bạn Thiên Bảo - 300k 🧧</li>
+    
+    <!-- Thêm người khác tại đây -->
+  </ul>
+</div>
 <body>
   <div class="falling-flowers"></div>
   <h1 class="color-run">Thiệp Mời</h1>
@@ -170,20 +197,10 @@
 <div class="menu">
   <button onclick="showPage('home')">Trang chủ</button>
   <button onclick="showPage('album')">Album ảnh</button>
-</div>
-  <!-- Trang chính -->
-<div id="home" class="page">
-  <!-- TOÀN BỘ nội dung thiệp mời đang có -->
-</div>
-
-<!-- Trang Album ảnh -->
-<div id="album" class="page" style="display: none;">
-  <h2 class="color-run">Album Ảnh Cưới</h2>
-  <p>Dưới đây là những khoảnh khắc tuyệt đẹp của chúng mình 💕</p>
-  <img src="link-anh-1.jpg" style="width: 100%; margin-bottom: 10px;" />
-  <img src="link-anh-2.jpg" style="width: 100%; margin-bottom: 10px;" />
-  <br>
-  <button onclick="showPage('home')">← Quay lại Thiệp Mời</button>
+  <button onclick="showPage('address')">Địa chỉ</button>
+  <button onclick="showPage('bank')">Chuyển khoản</button>
+  <button onclick="showPage('contact')">Liên hệ</button>
+  <button onclick="showPage('donors')">Người đã chuyển</button>
 </div>
   <div class="section countdown">
     Đếm ngược tới ngày cưới:<br>

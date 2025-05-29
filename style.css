@@ -19,3 +19,28 @@
     opacity: 0;
   }
 }
+.transfer-marquee {
+  width: 100%;
+  overflow: hidden;
+  background: #fff8f0;
+  border-top: 2px solid #ff4081;
+  border-bottom: 2px solid #ff4081;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  z-index: 9999;
+}
+
+.transfer-track {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: marquee 25s linear infinite;
+  font-size: 16px;
+  color: #d81b60;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}

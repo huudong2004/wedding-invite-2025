@@ -80,6 +80,16 @@
       0% { transform: translateX(0%); }
       100% { transform: translateX(-100%); }
     }
+    .page {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.page.active {
+  display: block;
+  opacity: 1;
+}
   </style>
 </head>
   <meta charset="UTF-8">
@@ -346,13 +356,21 @@
   });
   </script><script>
   function showPage(pageId) {
-    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-    document.getElementById(pageId).style.display = 'block';
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    showPage('home'); // Mặc định mở trang chủ
+  const pages = document.querySelectorAll('.page');
+  pages.forEach(page => {
+    if (page.id === pageId) {
+      page.classList.add('active');
+    } else {
+      page.classList.remove('active');
+      page.style.display = 'none';
+      setTimeout(() => page.style.opacity = 0, 10); // làm mờ trước khi ẩn
+    }
   });
+
+  const activePage = document.getElementById(pageId);
+  activePage.style.display = 'block';
+  setTimeout(() => activePage.style.opacity = 1, 10); // làm sáng sau khi hiển thị
+}
   </script>
 </body><div class="transfer-marquee">
   <div class="transfer-track">

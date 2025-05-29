@@ -225,29 +225,28 @@
 <body>
   <!-- Các nội dung khác -->
 
-  <audio id="wedding-audio" loop>
-    <source src="https://drive.google.com/uc?export=download&id=1D9ftuS5xt1sUFYrrtE4qkGkMTdJmVfzQ" type="audio/mpeg" />
-  </audio>
+<audio id="wedding-audio" autoplay loop>
+  <source src="https://files.catbox.moe/cqkwsf.mp3" type="audio/mpeg">
+  Trình duyệt không hỗ trợ phát nhạc.
+</audio>
 
   <button id="music-btn" onclick="toggleAudio()">Bật nhạc</button>
+<button onclick="toggleAudio()" id="audio-btn">🔊</button>
 
-  <!-- Các nội dung khác -->
+<script>
+  const audio = document.getElementById("wedding-audio");
+  const audioBtn = document.getElementById("audio-btn");
 
-  <script>
-    let isPlaying = false;
-    const audio = document.getElementById("wedding-audio");
-
-    function toggleAudio() {
-      if (isPlaying) {
-        audio.pause();
-        document.getElementById("music-btn").innerText = "Bật nhạc";
-      } else {
-        audio.play();
-        document.getElementById("music-btn").innerText = "Tắt nhạc";
-      }
-      isPlaying = !isPlaying;
+  function toggleAudio() {
+    if (audio.paused) {
+      audio.play();
+      audioBtn.innerText = "🔊";
+    } else {
+      audio.pause();
+      audioBtn.innerText = "🔇";
     }
-  </script>
+  }
+</script>
 </body>
   <!-- Menu cố định -->
   <div class="menu">

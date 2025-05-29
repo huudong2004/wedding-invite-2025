@@ -5,15 +5,30 @@
     text-align: center;
     margin-top: 10px;
   }
-  .menu button {
-    padding: 8px 16px;
-    margin: 5px;
-    background-color: #00695c;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-  }
+.menu button {
+  background-color: #00695c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  padding: 8px 16px;
+  margin: 5px;
+
+  background: linear-gradient(270deg, #ff4081, #ffd740, #00e5ff, #ff4081);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: colorShift 6s linear infinite, blinkText 1.5s infinite;
+}
+
+@keyframes colorShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 600% 50%; }
+}
+@keyframes blinkText {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
     .color-run {
   font-size: 2rem;
   font-family: 'Great Vibes', cursive;

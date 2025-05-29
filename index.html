@@ -239,7 +239,7 @@
 
   <div class="section">
     <h2 class="color-run">Trân trọng kính mời: Quý Gia Đình</h2>
-    <p>Vui lòng đến dự buổi tiệc rượu chung vui cùng gia đình chúng tôi tại:</p>
+    <p>Đến dự buổi tiệc rượu chung vui cùng gia đình chúng tôi tại:</p>
     <p><strong>Ấp Mỹ Quí - Xã Hiệp Mỹ Tây<br>H. Cầu Ngang - T. Trà Vinh</strong></p>
     <p><strong>Vào lúc: 11h00 – 13h00</strong><br>
       Ngày 16 tháng 06 năm 2025<br>
@@ -281,7 +281,21 @@
   <div class="color">
     Thiệp cưới thiết kế bởi cá nhân Nguyễn Hữu Đông - 2025
   </div>
+<script>
+  let isPlaying = true;
+  const audio = document.getElementById("wedding-audio");
 
+  function toggleAudio() {
+    if (isPlaying) {
+      audio.pause();
+      document.getElementById("music-btn").innerText = "Bật nhạc";
+    } else {
+      audio.play();
+      document.getElementById("music-btn").innerText = "Tắt nhạc";
+    }
+    isPlaying = !isPlaying;
+  }
+</script>
   <script>
     function copyContent() {
       const content = 'Ten Nguoi Gui';
@@ -336,14 +350,11 @@
     showPage('home');
   });
   </script>
-</body><div class="transfer-marquee">
-  <div class="transfer-track">
-    • Bạn Thiên Bảo 300🧧– Trăm Năm Hạnh Phúc!
-  </div>
+
 </div>
   <audio id="wedding-audio" loop>
   <source src="https://dl.dropboxusercontent.com/s/vozh9x6s4e3zv5a/mai-mai-ben-nhau.mp3" type="audio/mp3">
   </audio>
-<button onclick="toggleAudio()" id="music-btn">Tắt nhạc</button>
+<button id="music-btn" onclick="toggleAudio()">Tắt nhạc</button>
   </html>
   

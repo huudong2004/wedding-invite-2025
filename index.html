@@ -348,7 +348,7 @@
 
     setInterval(updateCountdown, 1000);
     updateCountdown();
-  </script>
+  <script>
   <script>
 function showPage(pageId) {
   const pages = document.querySelectorAll('.page');
@@ -377,23 +377,6 @@ document.addEventListener("DOMContentLoaded", () => {
   showPage('home');
 });
   <script>
-  function showPage(pageId) {
-    const pages = document.querySelectorAll('.page');
-    pages.forEach(page => {
-      if (page.id === pageId) {
-        page.classList.add('active');
-        page.style.display = 'block';
-        setTimeout(() => page.style.opacity = 1, 10);
-      } else {
-        page.classList.remove('active');
-        setTimeout(() => {
-          page.style.opacity = 0;
-          setTimeout(() => page.style.display = 'none', 500);
-        }, 10);
-      }
-    });
-  }
-
   document.addEventListener("DOMContentLoaded", () => {
     showPage('home');
   });

@@ -3,26 +3,6 @@
 
 <head>
   <head>
-  <style>
-  .menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: white;
-    z-index: 999;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .page {
-    display: none;
-    padding: 20px;
-  }
-</style>
   <style> 
   .menu {
     text-align: center;
@@ -222,15 +202,19 @@
 <body>
   <div class="falling-flowers"></div>
   <h1 class="color-run">Thiệp Mời</h1>
-<!-- Menu đơn giản -->
-<div class="menu">
-  <button onclick="showPage('home')">Trang chủ</button>
-  <button onclick="showPage('album')">Album ảnh</button>
-  <button onclick="showPage('address')">Địa chỉ</button>
-  <button onclick="showPage('bank')">Chuyển khoản</button>
-  <button onclick="showPage('contact')">Liên hệ</button>
-  <button onclick="showPage('donors')">Người đã chuyển</button>
-</div>
+<body>
+  <!-- Menu cố định -->
+  <div class="menu">
+    <button onclick="showPage('home')">Trang chủ</button>
+    <button onclick="showPage('album')">Album ảnh</button>
+    <button onclick="showPage('address')">Địa chỉ</button>
+    <button onclick="showPage('bank')">Chuyển khoản</button>
+    <button onclick="showPage('contact')">Liên hệ</button>
+    <button onclick="showPage('donors')">Người đã chuyển</button>
+  </div>
+
+  <!-- Khoảng cách để nội dung không bị che bởi menu -->
+  <div style="height: 80px;"></div>
   <div class="section countdown">
     Đếm ngược tới ngày cưới:<br>
     <span id="countdown" class="color-run"></span>

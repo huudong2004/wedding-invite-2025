@@ -248,15 +248,20 @@
 </div>
 
 <!-- Chuyển khoản -->
-<div id="bank" class="page" style="display: none;">
-  <h2 class="color-run">Chuyển khoản mừng cưới</h2>
-  <img src="https://i.ibb.co/7Js7TmQr/Screenshot-2025-05-22-11-30-14-991-com-VCB.png" alt="QR Vietcombank" width="200">
-  <p><strong>NGUYEN HUU DONG</strong></p>
-  <p>Ngân hàng: Vietcombank</p>
-  <p onclick="copyToClipboard('1034912011')" style="cursor: pointer; color: #007bff; font-weight: bold;">
-    Số tài khoản: 1034912011 (Bấm để sao chép)
-  </p>
-  <p>Nội dung chuyển khoản: "[Tên bạn]"</p>
+<div id="popup-money" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+  <div class="bg-white rounded-xl p-4 text-center max-w-sm mx-auto">
+    <h2 class="text-xl font-bold mb-2">Mừng Cưới</h2>
+    <p class="mb-4">Quét mã để chuyển khoản</p>
+
+    <!-- ✅ Thêm ảnh QR vào đây -->
+    <img src="https://i.imgur.com/pwWNiV3.png" alt="QR chuyển khoản" class="w-48 mx-auto mb-4 rounded-lg shadow-md" />
+
+    <p class="text-sm text-gray-600 mb-2">Ngân hàng: Vietcombank</p>
+    <p class="text-sm text-gray-600 mb-2">Chủ tài khoản: Nguyễn Hữu Đông</p>
+    <p class="text-sm text-gray-600">STK: 1034912011</p>
+
+    <button onclick="document.getElementById('popup-money').classList.add('hidden')" class="mt-4 px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600">Đóng</button>
+  </div>
 </div>
 <!-- Album ảnh -->
 <div id="album" class="page" style="display: none;">

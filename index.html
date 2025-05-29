@@ -6,21 +6,40 @@
     margin-top: 10px;
   }
 .menu button {
+  padding: 8px 16px;
+  margin: 5px;
   background-color: #00695c;
   color: white;
   border: none;
   border-radius: 6px;
   font-weight: bold;
-  padding: 8px 16px;
-  margin: 5px;
-
+  cursor: pointer;
+  
+  /* gradient chuyển màu chữ + chớp */
   background: linear-gradient(270deg, #ff4081, #ffd740, #00e5ff, #ff4081);
   background-size: 600% 600%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: colorShift 6s linear infinite, blinkText 1.5s infinite;
+  
+  /* bóng chữ */
+  text-shadow: 0 0 5px rgba(255, 64, 129, 0.6);
+  transition: all 0.3s ease;
 }
 
+.menu button:hover {
+  animation: colorShift 3s linear infinite, blinkTextFast 0.7s infinite;
+  transform: scale(1.1);
+  text-shadow: 0 0 10px rgba(255, 64, 129, 1);
+}
+
+.menu button.active {
+  transform: scale(1.1);
+  text-shadow: 0 0 15px rgba(255, 64, 129, 1);
+  animation: colorShift 3s linear infinite, blinkTextFast 0.7s infinite;
+}
+
+/* Animation */
 @keyframes colorShift {
   0% { background-position: 0% 50%; }
   100% { background-position: 600% 50%; }
@@ -28,6 +47,10 @@
 @keyframes blinkText {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
+}
+@keyframes blinkTextFast {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.1; }
 }
     .color-run {
   font-size: 2rem;

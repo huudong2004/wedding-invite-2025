@@ -2,7 +2,26 @@
 <html lang="vi">
 
 <head><head>
-  <style>
+  <style>  
+    .petal {
+  position: fixed;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/477/477406.png'); /* hoặc ảnh hoa khác bạn thích */
+  background-size: cover;
+  animation: fall linear;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
     .transfer-marquee {
       width: 100%;
       overflow: hidden;

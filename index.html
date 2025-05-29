@@ -2,7 +2,6 @@
 <html lang="vi">
 
 <head>
-  <head>
   <style> 
   .menu {
     text-align: center;
@@ -212,13 +211,14 @@
 <body>
   <div class="falling-flowers"></div>
   <h1 class="color-run">Thiệp Mời</h1>
-<body><body>
+<body>
   <!-- Phát nhạc cưới và nút tắt mở -->
   <audio id="wedding-audio" autoplay loop muted>
     <source src="https://dl.dropboxusercontent.com/s/vozh9x6s4e3zv5a/mai-mai-ben-nhau.mp3" type="audio/mpeg" />
   </audio>
   <button id="music-btn" onclick="toggleAudio()">Tắt nhạc
-  </button><script>
+  </button>
+  <script>
   let isPlaying = true;
   const audio = document.getElementById("wedding-audio");
 
@@ -350,7 +350,8 @@
 
     setInterval(updateCountdown, 1000);
     updateCountdown();
-  </script><script>
+  </script>
+  <script>
   function showPage(pageId) {
     const pages = document.querySelectorAll('.page');
     pages.forEach(page => {

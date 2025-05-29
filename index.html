@@ -212,7 +212,29 @@
 <body>
   <div class="falling-flowers"></div>
   <h1 class="color-run">Thiệp Mời</h1>
-<body>
+<body><body>
+  <!-- Phát nhạc cưới và nút tắt mở -->
+  <audio id="wedding-audio" autoplay loop muted>
+    <source src="nhaccuoi.mp3" type="audio/mpeg" />
+  </audio>
+  <button id="music-btn" onclick="toggleAudio()">Tắt nhạc
+  </button><script>
+  let isPlaying = true;
+  const audio = document.getElementById("wedding-audio");
+
+  function toggleAudio() {
+    if (isPlaying) {
+      audio.pause();
+      document.getElementById("music-btn").innerText = "Bật nhạc";
+    } else {
+      audio.muted = false;
+      audio.play();
+      document.getElementById("music-btn").innerText = "Tắt nhạc";
+    }
+    isPlaying = !isPlaying;
+  }
+</script>
+</body>
   <!-- Menu cố định -->
   <div class="menu">
     <button onclick="showPage('home')">Trang chủ</button>

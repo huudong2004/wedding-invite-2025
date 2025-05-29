@@ -203,12 +203,25 @@
     <li>Bạn Thiên Bảo - 300k 🧧</li>
     
     <!-- Thêm người khác tại đây -->
+    <!-- Địa chỉ (Google Maps) -->
+<div id="address" class="page" style="display: none;">
+  <h2 class="color-run">Địa điểm tổ chức</h2>
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15699.14232922835!2d106.4952113!3d9.7172514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1716360000000!5m2!1svi!2s"
+    width="100%" height="300" style="border:0; border-radius: 1rem;" allowfullscreen="" loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+
+  <div style="margin-top: 1rem;">
+    <a href="https://www.google.com/maps?q=9.7172514,106.4952113" target="_blank" 
+       style="display: inline-block; padding: 10px 20px; background-color: #007BFF; color: white; border-radius: 8px; text-decoration: none;">
+      Xem bản đồ trên Google Maps
+    </a>
+  </div>
   </ul>
 </div>
-<body>
   <div class="falling-flowers"></div>
   <h1 class="color-run">Thiệp Mời</h1>
-<body>
 <body>
   <!-- Các nội dung khác -->
 
@@ -269,67 +282,10 @@
       (Nhằm ngày 21 tháng 05 năm Ất Tỵ)</p>
     <p>Sự hiện diện của Quý Gia Đình là niềm vinh hạnh cho gia đình chúng tôi.</p>
     <p><em>Kính mời</em></p>
-  </div>
-
-
-  <div class="section qr">
-    <h2 class="color-run">Chuyển khoản mừng cưới</h2>
-    <img src="https://i.ibb.co/7Js7TmQr/Screenshot-2025-05-22-11-30-14-991-com-VCB.png" alt="QR Vietcombank">
-    <p><strong>Nguyễn Hữu Đông</strong><br>Số tài khoản: <strong>1034912011</strong><br>Ngân hàng Vietcombank</p>
-    <button class="copy-btn" onclick="copyContent()">Sao chép nội dung: "Ten Nguoi Gui"</button>
-    <p id="copied" style="display:none; color: green;">Đã sao chép!</p>
-  </div>
-
-  <div class="section album">
-    <h2 class="color-run">Ảnh Cưới</h2>
-    <img src="https://i.ibb.co/2rRQkk4/IMG-1747887925180-1747887927186.jpg" alt="Ảnh cưới 1">
-  </div>
-
-  <div style="text-align: center; margin-top: 2rem;">
-  <h2 class="color-run">Địa điểm tổ chức</h2>
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15699.14232922835!2d106.4952113!3d9.7172514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1716360000000!5m2!1svi!2s"
-    width="100%" height="300" style="border:0; border-radius: 1rem;" allowfullscreen="" loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
-
-  <div style="margin-top: 1rem;">
-    <a href="https://www.google.com/maps?q=9.7172514,106.4952113" target="_blank" 
-       style="display: inline-block; padding: 10px 20px; background-color: #007BFF; color: white; border-radius: 8px; text-decoration: none;">
-      Xem bản đồ trên Google Maps
-    </a>
-  </div>
-  </div>
-
-  <div class="color">
     Thiệp cưới thiết kế bởi cá nhân Nguyễn Hữu Đông - 2025
   </div>
-<script>
-  let isPlaying = true;
-  const audio = document.getElementById("wedding-audio");
-
-  function toggleAudio() {
-    if (isPlaying) {
-      audio.pause();
-      document.getElementById("music-btn").innerText = "Bật nhạc";
-    } else {
-      audio.play();
-      document.getElementById("music-btn").innerText = "Tắt nhạc";
-    }
-    isPlaying = !isPlaying;
-  }
-</script>
   <script>
-    function copyContent() {
-      const content = 'Ten Nguoi Gui';
-      navigator.clipboard.writeText(content).then(() => {
-        document.getElementById('copied').style.display = 'block';
-        setTimeout(() => {
-          document.getElementById('copied').style.display = 'none';
-        }, 2000);
-      });
-    }
-
+    
     function updateCountdown() {
       const weddingDate = new Date("2025-06-16T09:00:00").getTime();
       const now = new Date().getTime();

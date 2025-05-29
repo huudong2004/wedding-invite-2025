@@ -3,6 +3,20 @@
 
 <head><head>
   <style> 
+  .menu {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .menu button {
+    padding: 8px 16px;
+    margin: 5px;
+    background-color: #00695c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+</style>
     .menu-toggle {
   font-size: 2rem;
   position: fixed;
@@ -212,6 +226,20 @@
   <button onclick="showPage('home')">Trang chủ</button>
   <button onclick="showPage('album')">Album ảnh</button>
 </div>
+  <!-- Trang chính -->
+<div id="home" class="page">
+  <!-- TOÀN BỘ nội dung thiệp mời đang có -->
+</div>
+
+<!-- Trang Album ảnh -->
+<div id="album" class="page" style="display: none;">
+  <h2 class="color-run">Album Ảnh Cưới</h2>
+  <p>Dưới đây là những khoảnh khắc tuyệt đẹp của chúng mình 💕</p>
+  <img src="link-anh-1.jpg" style="width: 100%; margin-bottom: 10px;" />
+  <img src="link-anh-2.jpg" style="width: 100%; margin-bottom: 10px;" />
+  <br>
+  <button onclick="showPage('home')">← Quay lại Thiệp Mời</button>
+</div>
   <div class="section countdown">
     Đếm ngược tới ngày cưới:<br>
     <span id="countdown" class="color-run"></span>
@@ -308,6 +336,15 @@
   function toggleMenu() {
     document.getElementById('menu').classList.toggle('show');
   }
+  </script><script>
+  function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+    document.getElementById(pageId).style.display = 'block';
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    showPage('home'); // Mặc định hiện trang thiệp mời
+  });
   </script>
 </body><div class="transfer-marquee">
   <div class="transfer-track">

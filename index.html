@@ -342,6 +342,7 @@
     <button onclick="showPage('contact')">Liên hệ</button>
     <button onclick="showPage('donors')">Người đã chuyển</button>
     <button onclick="showPage('menu')">Menu Món</button>
+    <button onclick="showPage('rsvp')">Xác nhận tham dự</button>
   </div>
   <div class="section countdown">
     Đếm ngược tới ngày cưới:<br>
@@ -497,7 +498,37 @@ function closeEnvelope() {
     }
   }
 </style>
+<section id="rsvp" class="page">
+  <h2 class="text-2xl font-bold mb-4">Xác nhận tham dự</h2>
+  <p class="mb-2">Vui lòng cho chúng tôi biết bạn có tham dự buổi tiệc không nhé!</p>
+  <form id="rsvp-form" class="space-y-4">
+    <input type="text" name="name" placeholder="Tên của bạn" required class="w-full p-2 rounded border">
+    
+    <select name="attendance" required class="w-full p-2 rounded border">
+      <option value="">-- Bạn có tham dự không? --</option>
+      <option value="yes">Có, tôi sẽ đến</option>
+      <option value="no">Rất tiếc, tôi không thể đến</option>
+    </select>
 
+    <button type="submit" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">
+      Gửi xác nhận
+    </button>
+  </form>
+
+  <div id="rsvp-message" class="mt-4 text-green-600 font-semibold hidden">Cảm ơn bạn đã xác nhận!</div>
+</section>
+  <script>
+  document.getElementById("rsvp-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name = this.name.value;
+    const status = this.attendance.value;
+
+    // Tùy chọn: bạn có thể gửi dữ liệu này đến Google Sheets hoặc một webhook
+
+    document.getElementById("rsvp-message").classList.remove("hidden");
+    this.reset();
+  });
+  </script>
 <script>
   function createHeart() {
     const heart = document.createElement('div');

@@ -315,62 +315,26 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
   </script><script>
-  function toggleMenu() {
-    document.getElementById('menu').classList.toggle('show');
-  }
-  </script><script>
   function showPage(pageId) {
-    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-    document.getElementById(pageId).style.display = 'block';
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    showPage('home'); // Mặc định hiện trang thiệp mời
-  });
-  </script><script>
-  function showPage(pageId) {
-    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-    document.getElementById(pageId).style.display = 'block';
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    showPage('home'); // Mặc định mở trang chủ
-  });
-  </script><script>
-  function showPage(pageId) {
-    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-    document.getElementById(pageId).style.display = 'block';
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => {
+      if (page.id === pageId) {
+        page.classList.add('active');
+        page.style.display = 'block';
+        setTimeout(() => page.style.opacity = 1, 10);
+      } else {
+        page.classList.remove('active');
+        setTimeout(() => {
+          page.style.opacity = 0;
+          setTimeout(() => page.style.display = 'none', 500);
+        }, 10);
+      }
+    });
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    showPage('home'); // Mặc định mở trang chủ
+    showPage('home');
   });
-  </script><script>
-  function showPage(pageId) {
-    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-    document.getElementById(pageId).style.display = 'block';
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    showPage('home'); // Mặc định mở trang chủ
-  });
-  </script><script>
-  function showPage(pageId) {
-  const pages = document.querySelectorAll('.page');
-  pages.forEach(page => {
-    if (page.id === pageId) {
-      page.classList.add('active');
-    } else {
-      page.classList.remove('active');
-      page.style.display = 'none';
-      setTimeout(() => page.style.opacity = 0, 10); // làm mờ trước khi ẩn
-    }
-  });
-
-  const activePage = document.getElementById(pageId);
-  activePage.style.display = 'block';
-  setTimeout(() => activePage.style.opacity = 1, 10); // làm sáng sau khi hiển thị
-}
   </script>
 </body><div class="transfer-marquee">
   <div class="transfer-track">

@@ -341,6 +341,33 @@
     updateCountdown();
   </script>
   <script>
+function showPage(pageId) {
+  const pages = document.querySelectorAll('.page');
+  pages.forEach(page => {
+    if (page.id === pageId) {
+      page.classList.add('active');
+      page.style.display = 'block';
+      setTimeout(() => page.style.opacity = 1, 10);
+    } else {
+      page.classList.remove('active');
+      setTimeout(() => {
+        page.style.opacity = 0;
+        setTimeout(() => page.style.display = 'none', 500);
+      }, 10);
+    }
+  });
+
+  // Bật hiệu ứng active cho nút tương ứng
+  const buttons = document.querySelectorAll('.menu button');
+  buttons.forEach(btn => btn.classList.remove('active'));
+  const activeBtn = document.querySelector(`.menu button[onclick="showPage('${pageId}')"]`);
+  if(activeBtn) activeBtn.classList.add('active');
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  showPage('home');
+});
+  <script>
   function showPage(pageId) {
     const pages = document.querySelectorAll('.page');
     pages.forEach(page => {

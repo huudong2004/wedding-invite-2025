@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="vi">
   <style> 
+    .typing-text {
+  font-size: 18px;
+  color: #444;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #555;
+  width: 100%;
+  max-width: 100%;
+  animation: typing 4s steps(60, end), blink .75s step-end infinite;
+  margin-top: 10px;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
     .wedding-border {
   border: 20px solid transparent;
   border-image: url('https://i.ibb.co/smJQ4ZD/floral-border.png') 30 stretch;
@@ -280,6 +300,7 @@
 <div id="home" class="page" style="display: block;">
   <h1 class="color-run">Thiệp Mời</h1>
   <p>Chào mừng bạn đến với lễ cưới của chúng tôi!</p>
+  <p id="typing-text" class="typing-text"></p>
 </div>
   <!-- Các nội dung khác -->
 
@@ -361,7 +382,21 @@
   setInterval(updateCountdown, 1000);
   updateCountdown();
 </script>
-
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const text = "Chúng tôi rất hân hạnh được đón tiếp bạn tại ngày trọng đại này...";
+    const typingText = document.getElementById("typing-text");
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        typingText.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 50);
+      }
+    }
+    type();
+  });
+</script>
 <script>
   // Hàm chuyển trang
   function showPage(pageId) {

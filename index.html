@@ -325,62 +325,60 @@
     <p>Sự hiện diện của Quý Gia Đình là niềm vinh hạnh cho gia đình chúng tôi.</p>
     <p><em>Kính mời</em></p>
   </div>
-  <script>
-    
-    function updateCountdown() {
-      const weddingDate = new Date("2025-06-16T09:00:00").getTime();
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
+<script>
+  // Hàm cập nhật đếm ngược
+  function updateCountdown() {
+    const weddingDate = new Date("2025-06-16T09:00:00").getTime();
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
 
-      if (distance < 0) {
-        document.getElementById("countdown").innerHTML = "Hôn lễ đã diễn ra";
-        return;
+    if (distance < 0) {
+      document.getElementById("countdown").innerHTML = "Hôn lễ đã diễn ra";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerHTML =
+      days + " ngày " + hours + " giờ " + minutes + " phút " + seconds + " giây";
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>
+
+<script>
+  // Hàm chuyển trang
+  function showPage(pageId) {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => {
+      if (page.id === pageId) {
+        page.classList.add('active');
+        page.style.display = 'block';
+        setTimeout(() => page.style.opacity = 1, 10);
+      } else {
+        page.classList.remove('active');
+        setTimeout(() => {
+          page.style.opacity = 0;
+          setTimeout(() => page.style.display = 'none', 500);
+        }, 10);
       }
+    });
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    // Bật hiệu ứng active cho nút tương ứng
+    const buttons = document.querySelectorAll('.menu button');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    const activeBtn = document.querySelector(`.menu button[onclick="showPage('${pageId}')"]`);
+    if (activeBtn) activeBtn.classList.add('active');
+  }
 
-      document.getElementById("countdown").innerHTML =
-        days + " ngày " + hours + " giờ " + minutes + " phút " + seconds + " giây";
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  <script>
-  <script>
-function showPage(pageId) {
-  const pages = document.querySelectorAll('.page');
-  pages.forEach(page => {
-    if (page.id === pageId) {
-      page.classList.add('active');
-      page.style.display = 'block';
-      setTimeout(() => page.style.opacity = 1, 10);
-    } else {
-      page.classList.remove('active');
-      setTimeout(() => {
-        page.style.opacity = 0;
-        setTimeout(() => page.style.display = 'none', 500);
-      }, 10);
-    }
-  });
-
-  // Bật hiệu ứng active cho nút tương ứng
-  const buttons = document.querySelectorAll('.menu button');
-  buttons.forEach(btn => btn.classList.remove('active'));
-  const activeBtn = document.querySelector(`.menu button[onclick="showPage('${pageId}')"]`);
-  if(activeBtn) activeBtn.classList.add('active');
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  showPage('home');
-});
-  <script>
   document.addEventListener("DOMContentLoaded", () => {
     showPage('home');
   });
-  </script>
+</script>
 
 </div>
   </html>

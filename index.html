@@ -52,6 +52,7 @@
   text-shadow: 0 0 5px rgba(255, 64, 129, 0.6);
   transition: all 0.3s ease;
 }
+<style>
 
 .menu button:hover {
   animation: colorShift 3s linear infinite, blinkTextFast 0.7s infinite;
@@ -227,6 +228,16 @@
         font-size: 1.2rem;
       }
     }
+  </style>
+  <style>
+#envelope-popup {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
   </style>
 </head>
 <script>
@@ -439,6 +450,15 @@
     });
   }
 </script>
+  <script>
+function openEnvelope() {
+  document.getElementById('envelope-popup').classList.remove('hidden');
+}
+
+function closeEnvelope() {
+  document.getElementById('envelope-popup').classList.add('hidden');
+}
+  </script>
 </div>
 <style>
   .heart {

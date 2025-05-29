@@ -115,15 +115,24 @@
       0% { transform: translateX(0%); }
       100% { transform: translateX(-100%); }
     }
-    .page {
-  display: none;
+.page {
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transform: translateX(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  display: none;
 }
-
 .page.active {
   display: block;
   opacity: 1;
+  transform: translateX(0);
+}
+    .album img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.album img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
   </style>
   <meta charset="UTF-8">

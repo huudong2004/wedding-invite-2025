@@ -34,7 +34,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thiệp mời Nguyễn Hữu Đông & Trần Quỳnh Như</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
+  <style>   
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
@@ -97,8 +97,40 @@
       }
     }
   </style>
-</head>
+  .petal {
+  position: fixed;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/477/477406.png'); /* hoặc ảnh hoa khác bạn thích */
+  background-size: cover;
+  animation: fall linear;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.8;
+}
 
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+</head>
+<script>
+  const createPetal = () => {
+    const petal = document.createElement("div");
+    petal.classList.add("petal");
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.animationDuration = Math.random() * 2 + 3 + "s"; // 3s đến 5s
+    document.body.appendChild(petal);
+    setTimeout(() => {
+      petal.remove();
+    }, 5000);
+  };
+
+  setInterval(createPetal, 300); // Tạo hoa rơi mỗi 300ms
+</script>
 <body>
   <div class="falling-flowers"></div>
   <h1>Thiệp Mời</h1>

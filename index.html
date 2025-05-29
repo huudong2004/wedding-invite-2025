@@ -212,28 +212,58 @@
   <div class="falling-flowers"></div>
   <h1 class="color-run">Thiệp Mời</h1>
 <body>
-  <!-- Phát nhạc cưới và nút tắt mở -->
-  <audio id="wedding-audio" autoplay loop muted>
+<body>
+  <!-- Các nội dung khác -->
+
+  <audio id="wedding-audio" loop>
     <source src="https://dl.dropboxusercontent.com/s/vozh9x6s4e3zv5a/mai-mai-ben-nhau.mp3" type="audio/mpeg" />
   </audio>
-  <button id="music-btn" onclick="toggleAudio()">Tắt nhạc
-  </button>
-  <script>
-  let isPlaying = true;
-  const audio = document.getElementById("wedding-audio");
 
-  function toggleAudio() {
-    if (isPlaying) {
-      audio.pause();
-      document.getElementById("music-btn").innerText = "Bật nhạc";
-    } else {
-      audio.muted = false;
-      audio.play();
-      document.getElementById("music-btn").innerText = "Tắt nhạc";
+  <button id="music-btn" onclick="toggleAudio()">Bật nhạc</button>
+
+  <!-- Các nội dung khác -->
+
+  <script>
+    let isPlaying = false;
+    const audio = document.getElementById("wedding-audio");
+
+    function toggleAudio() {
+      if (isPlaying) {
+        audio.pause();
+        document.getElementById("music-btn").innerText = "Bật nhạc";
+      } else {
+        audio.play();
+        document.getElementById("music-btn").innerText = "Tắt nhạc";
+      }
+      isPlaying = !isPlaying;
     }
-    isPlaying = !isPlaying;
-  }
-</script>
+  </script>
+</body>
+  <!-- Các nội dung khác -->
+
+  <audio id="wedding-audio" loop>
+    <source src="https://dl.dropboxusercontent.com/s/vozh9x6s4e3zv5a/mai-mai-ben-nhau.mp3" type="audio/mpeg" />
+  </audio>
+
+  <button id="music-btn" onclick="toggleAudio()">Bật nhạc</button>
+
+  <!-- Các nội dung khác -->
+
+  <script>
+    let isPlaying = false;
+    const audio = document.getElementById("wedding-audio");
+
+    function toggleAudio() {
+      if (isPlaying) {
+        audio.pause();
+        document.getElementById("music-btn").innerText = "Bật nhạc";
+      } else {
+        audio.play();
+        document.getElementById("music-btn").innerText = "Tắt nhạc";
+      }
+      isPlaying = !isPlaying;
+    }
+  </script>
 </body>
   <!-- Menu cố định -->
   <div class="menu">

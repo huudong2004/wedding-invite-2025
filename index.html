@@ -421,7 +421,41 @@ body {
   <p id="typing-text" class="typing-text"></p>
 </div>
   <!-- Các nội dung khác -->
+<!-- Phần nhạc nền -->
+<div id="music-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999;">
+  <iframe 
+    src="https://www.nhaccuatui.com/mh/auto/dEL8mSp7kiKA" 
+    width="0" 
+    height="0" 
+    frameborder="0" 
+    allow="autoplay; encrypted-media" 
+    allowfullscreen>
+  </iframe>
+</div>
 
+<!-- Nút bật/tắt nhạc -->
+<button id="toggle-music" style="position: fixed; top: 20px; right: 20px; z-index: 99999;">
+  🔊 Tắt Nhạc
+</button>
+
+<script>
+  const btn = document.getElementById('toggle-music');
+  const musicContainer = document.getElementById('music-container');
+
+  let hidden = false;
+  btn.addEventListener('click', () => {
+    hidden = !hidden;
+    if (hidden) {
+      musicContainer.style.opacity = '0'; // Không dùng display: none
+      musicContainer.style.pointerEvents = 'none';
+      btn.textContent = '🔈 Bật Nhạc';
+    } else {
+      musicContainer.style.opacity = '1';
+      musicContainer.style.pointerEvents = 'auto';
+      btn.textContent = '🔊 Tắt Nhạc';
+    }
+  });
+</script>
 </body><!-- Đặt đoạn này sau <body> hoặc trước phần chính -->
 <div id="intro">
   <h1 class="intro-text">

@@ -422,48 +422,60 @@ body {
 </div>
   <!-- Các nội dung khác -->
 <!-- Phần nhạc nền -->
-<!-- Container nhạc (ẩn iframe và hiện nút + trạng thái) -->
-<div id="music-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999; text-align: right;">
-  <!-- Iframe nhạc ẩn -->
-  <iframe 
-    id="musicPlayer"
-    src="https://www.nhaccuatui.com/mh/auto/dEL8mSp7kiKA" 
-    width="0" 
-    height="0" 
-    frameborder="0" 
-    allow="autoplay; encrypted-media" 
-    allowfullscreen>
-  </iframe>
+<!-- Nhúng nhạc nền -->
+<audio id="bg-music" loop>
+  <source src="https://docs.google.com/uc?export=download&id=1cThNfdxQVo5KTGdkxF4xH6bFYk8lXpoS" type="audio/mpeg">
+  Trình duyệt không hỗ trợ audio.
+</audio>
 
-  <!-- Nút bật/tắt nhạc -->
-  <button id="toggleMusicBtn" style="padding: 8px 16px; background-color: #3b82f6; color: white; border: none; border-radius: 8px; font-size: 14px; cursor: pointer;">
-    🎵 Bật nhạc
-  </button>
-
-  <!-- Trạng thái -->
-  <div id="musicStatus" style="margin-top: 5px; font-size: 13px; color: #16a34a;"></div>
+<!-- Nút bật/tắt nhạc + dòng trạng thái -->
+<div style="position: fixed; top: 20px; right: 20px; z-index: 9999; text-align: center;">
+  <button id="music-toggle" onclick="toggleMusic()" style="
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    font-size: 24px;
+  ">🎵</button>
+  <div id="music-status" style="margin-top: 5px; font-size: 14px; color: #333;">Đã tắt nhạc</div>
 </div>
 
-<!-- Script xử lý bật/tắt nhạc -->
+<!-- Script điều khiển nhạc -->
 <script>
+  const audio = document.getElementById('bg-music');
+  const btn = document.getElementById('music-toggle');
+  const status = document.getElementById('music-status');
   let isPlaying = false;
-  const iframe = document.getElementById("musicPlayer");
-  const btn = document.getElementById("toggleMusicBtn");
-  const status = document.getElementById("musicStatus");
 
-  btn.addEventListener("click", function () {
-    if (!isPlaying) {
-      // Bật nhạc: reload lại iframe để autoplay
-      iframe.src = iframe.src;
-      btn.textContent = "⏸️ Tắt nhạc";
-      status.textContent = "🎶 Đang phát nhạc...";
+  function updateUI() {
+    btn.innerText = isPlaying ? '🎵' : '🔇';
+    status.innerText = isPlaying ? 'Đang phát nhạc' : 'Đã tắt nhạc';
+  }
+
+  function toggleMusic() {
+    if (isPlaying) {
+      audio.pause();
     } else {
-      // Tắt nhạc: đổi src để dừng phát
-      iframe.src = "about:blank";
-      btn.textContent = "🎵 Bật nhạc";
-      status.textContent = "🔇 Nhạc đã tắt.";
+      audio.play();
     }
     isPlaying = !isPlaying;
+    updateUI();
+  }
+
+  // Phát nhạc sau khi người dùng tương tác lần đầu
+  document.addEventListener('click', function initMusic() {
+    if (!isPlaying) {
+      audio.play().then(() => {
+        isPlaying = true;
+        updateUI();
+      }).catch(err => {
+        console.log('Autoplay bị chặn:', err);
+      });
+    }
+    document.removeEventListener('click', initMusic);
   });
 </script>
 </body><!-- Đặt đoạn này sau <body> hoặc trước phần chính -->

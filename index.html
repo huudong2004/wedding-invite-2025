@@ -110,6 +110,46 @@
   text-shadow: 0 0 5px rgba(255, 64, 129, 0.6);
   transition: all 0.3s ease;
 }
+   .menu ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  position: relative;
+}
+
+.menu li a {
+  position: relative;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: linear-gradient(#000, #000) padding-box,
+              linear-gradient(270deg, #ff00cc, #3333ff, #00ffff, #ff00cc) border-box;
+  background-size: 300% 300%;
+  animation: borderMove 5s linear infinite;
+}
+
+@keyframes borderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body {
+  background-color: #111;
+  font-family: 'Arial', sans-serif;
+}
 <style>
 
 .menu button:hover {

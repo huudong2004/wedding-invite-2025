@@ -10,6 +10,25 @@
   transform: translateY(20px);
   transition: all 0.8s ease-in-out;
 }
+    .floating-word {
+  position: fixed;
+  bottom: 0;
+  font-size: 20px;
+  color: #fff;
+  animation: floatUp 4s ease-out;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-150px);
+    opacity: 0;
+  }
+}
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
@@ -700,6 +719,15 @@ setInterval(() => {
   document.body.appendChild(sparkle);
   setTimeout(() => sparkle.remove(), 2000);
 }, 300);
+  const words = ["Hạnh phúc", "Yêu thương", "Trăm năm", "Thành hôn"];
+setInterval(() => {
+  const word = document.createElement("div");
+  word.innerText = words[Math.floor(Math.random() * words.length)];
+  word.className = "floating-word";
+  word.style.left = Math.random() * window.innerWidth + "px";
+  document.body.appendChild(word);
+  setTimeout(() => word.remove(), 4000);
+}, 2000);
 </script>
   <!-- Thêm vào cuối thẻ <body> -->
 <script>

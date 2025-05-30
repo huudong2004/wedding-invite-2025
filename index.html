@@ -14,6 +14,22 @@
   opacity: 1;
   transform: translateY(0);
 }
+    .shine-text {
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #fff, #ffd700, #fff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
   .sparkle {
     position: absolute;
     width: 3px;
@@ -466,6 +482,7 @@ body {
     <button onclick="showPage('contact')">Liên hệ</button>
     <button onclick="showPage('donors')">Người đã chuyển</button>
     <button onclick="showPage('menu')">Menu Món</button>
+  <button id="scrollTopBtn">⬆️</button>
   </div>
 </div>
   <div class="section countdown">
@@ -473,7 +490,7 @@ body {
     <span id="countdown" class="color-run"></span>
   </div>
 
-  <div class="section">
+  <div class="shine-text">
     <h2 class="color-run">Lễ Tân Hôn</h2>
     <p>Chúng tôi trân trọng báo tin lễ tân hôn của chúng tôi:</p>
     <p><strong>Nguyễn Hữu Đông (Út Nam)<br>&<br>Trần Quỳnh Như (Trưởng Nữ)</strong></p>
@@ -658,6 +675,11 @@ window.addEventListener("scroll", () => {
     }
   }
 });
+  const scrollBtn = document.getElementById("scrollTopBtn");
+window.onscroll = () => {
+  scrollBtn.style.display = window.scrollY > 200 ? "block" : "none";
+};
+scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
   function createHeart() {
     const heart = document.createElement('div');
     heart.className = 'heart';
@@ -679,6 +701,34 @@ setInterval(() => {
   setTimeout(() => sparkle.remove(), 2000);
 }, 300);
 </script>
+  <!-- Thêm vào cuối thẻ <body> -->
+<script>
+  document.addEventListener("click", function (e) {
+    const heart = document.createElement("div");
+    heart.innerText = "💖";
+    heart.style.position = "absolute";
+    heart.style.left = e.pageX + "px";
+    heart.style.top = e.pageY + "px";
+    heart.style.fontSize = "24px";
+    heart.style.animation = "fly 1s ease-out";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 1000);
+  });
+
+  // Thêm vào thẻ <style> hoặc file CSS
+</script>
+<style>
+@keyframes fly {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(1.5);
+  }
+}
+</style>
   
   </html>
   

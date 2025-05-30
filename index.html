@@ -436,41 +436,6 @@ body {
     allow="autoplay">
   </iframe>
 </div>
-
-<script>
-  const btn = document.getElementById('toggle-music');
-  const musicContainer = document.getElementById('music-container');
-
-  btn.addEventListener('click', () => {
-    if (musicContainer.style.display === 'none') {
-      musicContainer.style.display = 'block';
-      btn.textContent = '🔊 Tắt Nhạc';
-    } else {
-      musicContainer.style.display = 'none';
-      btn.textContent = '🔇 Bật Nhạc';
-    }
-  });
-
-  // Mặc định để nhạc chạy, nên nút hiển thị "Tắt Nhạc"
-  btn.textContent = '🔊 Tắt Nhạc';
-</script>
-<script>
-function showToast(text) {
-  const toast = document.createElement("div");
-  toast.textContent = text;
-  toast.style.position = "fixed";
-  toast.style.bottom = "60px";
-  toast.style.left = "50%";
-  toast.style.transform = "translateX(-50%)";
-  toast.style.background = "#fff";
-  toast.style.padding = "10px 20px";
-  toast.style.borderRadius = "10px";
-  toast.style.boxShadow = "0 4px 10px rgba(0,0,0,0.2)";
-  toast.style.zIndex = 9999;
-  document.body.appendChild(toast);
-  setTimeout(() => toast.remove(), 2000);
-}
-</script>
 </body><!-- Đặt đoạn này sau <body> hoặc trước phần chính -->
 <div id="intro">
   <h1 class="intro-text">
@@ -696,6 +661,41 @@ function closeEnvelope() {
   }
 
   setInterval(createHeart, 300); // Tạo 1 trái tim mỗi 300ms
+</script>
+ 
+<script>
+  const btn = document.getElementById('toggle-music');
+  const musicContainer = document.getElementById('music-container');
+
+  btn.addEventListener('click', () => {
+    if (musicContainer.style.display === 'none') {
+      musicContainer.style.display = 'block';
+      btn.textContent = '🔊 Tắt Nhạc';
+    } else {
+      musicContainer.style.display = 'none';
+      btn.textContent = '🔇 Bật Nhạc';
+    }
+  });
+
+  // Mặc định để nhạc chạy, nên nút hiển thị "Tắt Nhạc"
+  btn.textContent = '🔊 Tắt Nhạc';
+</script>
+<script>
+function showToast(text) {
+  const toast = document.createElement("div");
+  toast.textContent = text;
+  toast.style.position = "fixed";
+  toast.style.bottom = "60px";
+  toast.style.left = "50%";
+  toast.style.transform = "translateX(-50%)";
+  toast.style.background = "#fff";
+  toast.style.padding = "10px 20px";
+  toast.style.borderRadius = "10px";
+  toast.style.boxShadow = "0 4px 10px rgba(0,0,0,0.2)";
+  toast.style.zIndex = 9999;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 2000);
+}
 </script>
   </html>
   

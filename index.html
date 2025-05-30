@@ -733,7 +733,7 @@ setInterval(() => {
 <script>
   document.addEventListener("click", function (e) {
     const heart = document.createElement("div");
-    heart.innerText = "💖";
+    heart.innerText = "💖,❤️,💗";
     heart.style.position = "absolute";
     heart.style.left = e.pageX + "px";
     heart.style.top = e.pageY + "px";
@@ -757,9 +757,41 @@ setInterval(() => {
   }
 }
 </style>
-  <body>
+  <div>
     <button id="scrollTopBtn">⬆️</button>
-  </body>
-  
+  </div>
+  <style>
+.floating-word {
+  position: fixed;
+  bottom: 0;
+  font-size: 20px;
+  color: #fff;
+  animation: floatUp 4s ease-out;
+  pointer-events: none;
+  z-index: 9999;
+}
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-150px);
+    opacity: 0;
+  }
+}
+</style>
+
+<script>
+const words = ["Hạnh phúc", "Yêu thương", "Trăm năm", "Thành hôn"];
+setInterval(() => {
+  const word = document.createElement("div");
+  word.innerText = words[Math.floor(Math.random() * words.length)];
+  word.className = "floating-word";
+  word.style.left = Math.random() * window.innerWidth + "px";
+  document.body.appendChild(word);
+  setTimeout(() => word.remove(), 4000);
+}, 2000);
+</script>
   </html>
   

@@ -421,39 +421,6 @@ body {
   <p id="typing-text" class="typing-text"></p>
 </div>
 <!-- Các nội dung khác -->
-
-<audio id="wedding-audio" autoplay loop>
-<button id="toggle-music">🔊 Bật/Tắt Nhạc</button>
-
-<div id="music-container">
-  <iframe 
-    src="https://www.nhaccuatui.com/mh/auto/dEL8mSp7kiKA" 
-    width="620" 
-    height="382" 
-    frameborder="0" 
-    allowfullscreen 
-    allow="autoplay">
-  </iframe>
-</div>
-
-<script>
-  const btn = document.getElementById('toggle-music');
-  const musicContainer = document.getElementById('music-container');
-
-  btn.addEventListener('click', () => {
-    if (musicContainer.style.display === 'none') {
-      musicContainer.style.display = 'block';
-      btn.textContent = '🔊 Tắt Nhạc';
-    } else {
-      musicContainer.style.display = 'none';
-      btn.textContent = '🔇 Bật Nhạc';
-    }
-  });
-
-  // Mặc định để nhạc chạy, nên nút hiển thị "Tắt Nhạc"
-  btn.textContent = '🔊 Tắt Nhạc';
-</script>
-
 </body><!-- Đặt đoạn này sau <body> hoặc trước phần chính -->
 <div id="intro">
   <h1 class="intro-text">
@@ -567,16 +534,6 @@ body {
   document.addEventListener("DOMContentLoaded", () => {
     showPage('home');
   });
- window.addEventListener('DOMContentLoaded', () => {
-  bgMusic.play().then(() => {
-    musicStatus.textContent = "Đang phát nhạc 🎶";
-    musicButton.textContent = "🔇";
-  }).catch(() => {
-    // Trình duyệt chặn autoplay
-    musicStatus.textContent = "Đã tắt nhạc 🔕";
-    musicButton.textContent = "🎵";
-  });
-});
 </script>
 <script>
   function copyToClipboard(text) {
@@ -645,19 +602,6 @@ function closeEnvelope() {
       document.getElementById("intro").style.display = "none";
     }, 6000); // 6 giây rồi ẩn intro
   });
-  </script>
-<section id="rsvp" class="page">
-  <h2 class="text-2xl font-bold mb-4">Xác nhận tham dự</h2>
-  <p class="mb-2">Vui lòng cho chúng tôi biết bạn có tham dự buổi tiệc không nhé!</p>
-  <form id="rsvp-form" class="space-y-4">
-    <input type="text" name="name" placeholder="Tên của bạn" required class="w-full p-2 rounded border">
-    
-    <select name="attendance" required class="w-full p-2 rounded border">
-      <option value="">-- Bạn có tham dự không? --</option>
-      <option value="yes">Có, tôi sẽ đến</option>
-      <option value="no">Rất tiếc, tôi không thể đến</option>
-    </select>
-
     <button type="submit" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">
       Gửi xác nhận
     </button>

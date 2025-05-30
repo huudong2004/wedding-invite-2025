@@ -591,6 +591,16 @@ body {
   document.addEventListener("DOMContentLoaded", () => {
     showPage('home');
   });
+ window.addEventListener('DOMContentLoaded', () => {
+  bgMusic.play().then(() => {
+    musicStatus.textContent = "Đang phát nhạc 🎶";
+    musicButton.textContent = "🔇";
+  }).catch(() => {
+    // Trình duyệt chặn autoplay
+    musicStatus.textContent = "Đã tắt nhạc 🔕";
+    musicButton.textContent = "🎵";
+  });
+});
 </script>
 <script>
   function copyToClipboard(text) {

@@ -422,60 +422,38 @@ body {
 </div>
   <!-- Các nội dung khác -->
 <!-- Phần nhạc nền -->
-<!-- Nhúng nhạc nền -->
-<audio id="bg-music" loop>
-  <source src="https://drive.google.com/file/d/1cwIDhj8YPHnWyGCWsYUtHe1ZZV1bJRc2/view?usp=drivesdk" type="audio/mpeg">
-  Trình duyệt không hỗ trợ audio.
-</audio>
-
-<!-- Nút bật/tắt nhạc + dòng trạng thái -->
-<div style="position: fixed; top: 20px; right: 20px; z-index: 9999; text-align: center;">
-  <button id="music-toggle" onclick="toggleMusic()" style="
-    background: rgba(255, 255, 255, 0.8);
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    font-size: 24px;
-  ">🎵</button>
-  <div id="music-status" style="margin-top: 5px; font-size: 14px; color: #333;">Đã tắt nhạc</div>
+<div id="music-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999;">
+  <iframe 
+    src="https://www.nhaccuatui.com/mh/auto/dEL8mSp7kiKA" 
+    width="0" 
+    height="0" 
+    frameborder="0" 
+    allow="autoplay; encrypted-media" 
+    allowfullscreen>
+  </iframe>
 </div>
 
-<!-- Script điều khiển nhạc -->
+<!-- Nút bật/tắt nhạc -->
+<button id="toggle-music" style="position: fixed; top: 20px; right: 20px; z-index: 99999;">
+  🔊 Tắt Nhạc
+</button>
+
 <script>
-  const audio = document.getElementById('bg-music');
-  const btn = document.getElementById('music-toggle');
-  const status = document.getElementById('music-status');
-  let isPlaying = false;
+  const btn = document.getElementById('toggle-music');
+  const musicContainer = document.getElementById('music-container');
 
-  function updateUI() {
-    btn.innerText = isPlaying ? '🎵' : '🔇';
-    status.innerText = isPlaying ? 'Đang phát nhạc' : 'Đã tắt nhạc';
-  }
-
-  function toggleMusic() {
-    if (isPlaying) {
-      audio.pause();
+  let hidden = false;
+  btn.addEventListener('click', () => {
+    hidden = !hidden;
+    if (hidden) {
+      musicContainer.style.opacity = '0'; // Không dùng display: none
+      musicContainer.style.pointerEvents = 'none';
+      btn.textContent = '🔈 Bật Nhạc';
     } else {
-      audio.play();
+      musicContainer.style.opacity = '1';
+      musicContainer.style.pointerEvents = 'auto';
+      btn.textContent = '🔊 Tắt Nhạc';
     }
-    isPlaying = !isPlaying;
-    updateUI();
-  }
-
-  // Phát nhạc sau khi người dùng tương tác lần đầu
-  document.addEventListener('click', function initMusic() {
-    if (!isPlaying) {
-      audio.play().then(() => {
-        isPlaying = true;
-        updateUI();
-      }).catch(err => {
-        console.log('Autoplay bị chặn:', err);
-      });
-    }
-    document.removeEventListener('click', initMusic);
   });
 </script>
 </body><!-- Đặt đoạn này sau <body> hoặc trước phần chính -->

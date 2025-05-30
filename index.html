@@ -43,19 +43,40 @@
 }
 
 .intro-text {
-  font-size: 32px;
-  font-weight: bold;
+.intro-text {
   text-align: center;
-  animation: flyIn 2.5s ease-in-out; /* chuyển từ 2s ease-out -> 2.5s ease-in-out */
   color: #e91e63;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.intro-text .line {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: flyIn 1s ease-in-out forwards;
+}
+
+.intro-text .line:nth-child(1) {
+  animation-delay: 0.3s;
+}
+.intro-text .line:nth-child(2) {
+  animation-delay: 1s;
+}
+.intro-text .line:nth-child(3) {
+  animation-delay: 1.7s;
+}
+.intro-text .line:nth-child(4) {
+  animation-delay: 2.4s;
+}
+
+.highlight {
+  font-size: 32px;
+  color: #ff4081;
 }
 
 @keyframes flyIn {
-  0% {
-    opacity: 0;
-    transform: translateY(50px); /* trước là 100px */
-  }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
@@ -374,9 +395,12 @@
 </script>
 </body><!-- Đặt đoạn này sau <body> hoặc trước phần chính -->
 <div id="intro">
-  <h1 class="intro-text">Kính Chào Bạn Đến Với Thiệp Mời Lễ Tân Hôn Của Chúng Tôi
-    Hữu Đông - Quỳnh Như
-    Kính Mời</h1>
+  <h1 class="intro-text">
+    <div class="line">Kính Chào Bạn Đến Với Thiệp Mời</div>
+    <div class="line">Lễ Tân Hôn Của Chúng Tôi</div>
+    <div class="line highlight">Hữu Đông - Quỳnh Như</div>
+    <div class="line">Kính Mời</div>
+  </h1>
 </div>
   <!-- Menu cố định -->
   <div class="menu">

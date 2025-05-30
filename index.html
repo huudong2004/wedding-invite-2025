@@ -432,14 +432,32 @@ body {
   const audioBtn = document.getElementById("audio-btn");
 
   function toggleAudio() {
-    if (audio.paused) {
-      audio.play();
-      audioBtn.innerText = "🔊";
-    } else {
-      audio.pause();
-      audioBtn.innerText = "🔇";
-    }
+  if (audio.paused) {
+    audio.play();
+    audioBtn.innerText = "🔊";
+    showToast("Đang phát nhạc nền 💖");
+  } else {
+    audio.pause();
+    audioBtn.innerText = "🔇";
+    showToast("Đã tắt nhạc 🎵");
   }
+}
+
+function showToast(text) {
+  const toast = document.createElement("div");
+  toast.textContent = text;
+  toast.style.position = "fixed";
+  toast.style.bottom = "60px";
+  toast.style.left = "50%";
+  toast.style.transform = "translateX(-50%)";
+  toast.style.background = "#fff";
+  toast.style.padding = "10px 20px";
+  toast.style.borderRadius = "10px";
+  toast.style.boxShadow = "0 4px 10px rgba(0,0,0,0.2)";
+  toast.style.zIndex = 9999;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 2000);
+}
 </script>
 </body><!-- Đặt đoạn này sau <body> hoặc trước phần chính -->
 <div id="intro">
@@ -451,8 +469,6 @@ body {
   </h1>
 </div>
   <!-- Menu cố định -->
-  <div class="menu">
-    <button onclick="showPage('home')">Trang chủ</button>
 <div class="menu-border">
   <div class="menu">
     <button onclick="showPage('home')">Trang chủ</button>
@@ -622,7 +638,7 @@ function closeEnvelope() {
   window.addEventListener("load", () => {
     setTimeout(() => {
       document.getElementById("intro").style.display = "none";
-    }, 4000); // 4 giây rồi ẩn intro
+    }, 6000); // 6 giây rồi ẩn intro
   });
   </script>
 <section id="rsvp" class="page">

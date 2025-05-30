@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
   <style> 
    .menu-border {
@@ -421,40 +421,55 @@ body {
   <p id="typing-text" class="typing-text"></p>
 </div>
   <!-- Các nội dung khác -->
-<!-- Phần nhạc nền -->
-<div id="music-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999;">
+<!-- Các nội dung khác -->
+
+<audio id="wedding-audio" autoplay loop>
+<button id="toggle-music">🔊 Bật/Tắt Nhạc</button>
+
+<div id="music-container">
   <iframe 
-    src="https://www.youtube.com/embed/HnuY6AQmkkw?autoplay=1&mute=1&loop=1&playlist=HnuY6AQmkkw&enablejsapi=1" 
-    width="0" 
-    height="0" 
+    src="https://www.nhaccuatui.com/mh/auto/dEL8mSp7kiKA" 
+    width="620" 
+    height="382" 
     frameborder="0" 
-    allow="autoplay; encrypted-media" 
-    allowfullscreen>
+    allowfullscreen 
+    allow="autoplay">
   </iframe>
 </div>
-
-<!-- Nút bật/tắt nhạc -->
-<button id="toggle-music" style="position: fixed; top: 20px; right: 20px; z-index: 99999;">
-  🔊 Tắt Nhạc
-</button>
 
 <script>
   const btn = document.getElementById('toggle-music');
   const musicContainer = document.getElementById('music-container');
 
-  let hidden = false;
   btn.addEventListener('click', () => {
-    hidden = !hidden;
-    if (hidden) {
-      musicContainer.style.opacity = '0'; // Không dùng display: none
-      musicContainer.style.pointerEvents = 'none';
-      btn.textContent = '🔈 Bật Nhạc';
-    } else {
-      musicContainer.style.opacity = '1';
-      musicContainer.style.pointerEvents = 'auto';
+    if (musicContainer.style.display === 'none') {
+      musicContainer.style.display = 'block';
       btn.textContent = '🔊 Tắt Nhạc';
+    } else {
+      musicContainer.style.display = 'none';
+      btn.textContent = '🔇 Bật Nhạc';
     }
   });
+
+  // Mặc định để nhạc chạy, nên nút hiển thị "Tắt Nhạc"
+  btn.textContent = '🔊 Tắt Nhạc';
+</script>
+<script>
+function showToast(text) {
+  const toast = document.createElement("div");
+  toast.textContent = text;
+  toast.style.position = "fixed";
+  toast.style.bottom = "60px";
+  toast.style.left = "50%";
+  toast.style.transform = "translateX(-50%)";
+  toast.style.background = "#fff";
+  toast.style.padding = "10px 20px";
+  toast.style.borderRadius = "10px";
+  toast.style.boxShadow = "0 4px 10px rgba(0,0,0,0.2)";
+  toast.style.zIndex = 9999;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 2000);Add commentMore actions
+}
 </script>
 </body><!-- Đặt đoạn này sau <body> hoặc trước phần chính -->
 <div id="intro">

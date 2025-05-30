@@ -424,25 +424,37 @@ body {
   <!-- Các nội dung khác -->
 
 <audio id="wedding-audio" autoplay loop>
-  <source src="https://files.catbox.moe/cqkwsf.mp3" type="audio/mpeg">
-</audio>
-<button onclick="toggleAudio()" id="audio-btn">🔊</button>
+<button id="toggle-music">🔊 Bật/Tắt Nhạc</button>
+
+<div id="music-container">
+  <iframe 
+    src="https://www.nhaccuatui.com/mh/auto/dEL8mSp7kiKA" 
+    width="620" 
+    height="382" 
+    frameborder="0" 
+    allowfullscreen 
+    allow="autoplay">
+  </iframe>
+</div>
+
 <script>
-  const audio = document.getElementById("wedding-audio");
-  const audioBtn = document.getElementById("audio-btn");
+  const btn = document.getElementById('toggle-music');
+  const musicContainer = document.getElementById('music-container');
 
-  function toggleAudio() {
-  if (audio.paused) {
-    audio.play();
-    audioBtn.innerText = "🔊";
-    showToast("Đang phát nhạc nền 💖");
-  } else {
-    audio.pause();
-    audioBtn.innerText = "🔇";
-    showToast("Đã tắt nhạc 🎵");
-  }
-}
+  btn.addEventListener('click', () => {
+    if (musicContainer.style.display === 'none') {
+      musicContainer.style.display = 'block';
+      btn.textContent = '🔊 Tắt Nhạc';
+    } else {
+      musicContainer.style.display = 'none';
+      btn.textContent = '🔇 Bật Nhạc';
+    }
+  });
 
+  // Mặc định để nhạc chạy, nên nút hiển thị "Tắt Nhạc"
+  btn.textContent = '🔊 Tắt Nhạc';
+</script>
+<script>
 function showToast(text) {
   const toast = document.createElement("div");
   toast.textContent = text;

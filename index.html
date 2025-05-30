@@ -422,8 +422,11 @@ body {
 </div>
   <!-- Các nội dung khác -->
 <!-- Phần nhạc nền -->
-<div id="music-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999;">
+<!-- Container nhạc (ẩn iframe và hiện nút + trạng thái) -->
+<div id="music-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999; text-align: right;">
+  <!-- Iframe nhạc ẩn -->
   <iframe 
+    id="musicPlayer"
     src="https://www.nhaccuatui.com/mh/auto/dEL8mSp7kiKA" 
     width="0" 
     height="0" 
@@ -431,29 +434,36 @@ body {
     allow="autoplay; encrypted-media" 
     allowfullscreen>
   </iframe>
+
+  <!-- Nút bật/tắt nhạc -->
+  <button id="toggleMusicBtn" style="padding: 8px 16px; background-color: #3b82f6; color: white; border: none; border-radius: 8px; font-size: 14px; cursor: pointer;">
+    🎵 Bật nhạc
+  </button>
+
+  <!-- Trạng thái -->
+  <div id="musicStatus" style="margin-top: 5px; font-size: 13px; color: #16a34a;"></div>
 </div>
 
-<!-- Nút bật/tắt nhạc -->
-<button id="toggle-music" style="position: fixed; top: 20px; right: 20px; z-index: 99999;">
-  🔊 Tắt Nhạc
-</button>
-
+<!-- Script xử lý bật/tắt nhạc -->
 <script>
-  const btn = document.getElementById('toggle-music');
-  const musicContainer = document.getElementById('music-container');
+  let isPlaying = false;
+  const iframe = document.getElementById("musicPlayer");
+  const btn = document.getElementById("toggleMusicBtn");
+  const status = document.getElementById("musicStatus");
 
-  let hidden = false;
-  btn.addEventListener('click', () => {
-    hidden = !hidden;
-    if (hidden) {
-      musicContainer.style.opacity = '0'; // Không dùng display: none
-      musicContainer.style.pointerEvents = 'none';
-      btn.textContent = '🔈 Bật Nhạc';
+  btn.addEventListener("click", function () {
+    if (!isPlaying) {
+      // Bật nhạc: reload lại iframe để autoplay
+      iframe.src = iframe.src;
+      btn.textContent = "⏸️ Tắt nhạc";
+      status.textContent = "🎶 Đang phát nhạc...";
     } else {
-      musicContainer.style.opacity = '1';
-      musicContainer.style.pointerEvents = 'auto';
-      btn.textContent = '🔊 Tắt Nhạc';
+      // Tắt nhạc: đổi src để dừng phát
+      iframe.src = "about:blank";
+      btn.textContent = "🎵 Bật nhạc";
+      status.textContent = "🔇 Nhạc đã tắt.";
     }
+    isPlaying = !isPlaying;
   });
 </script>
 </body><!-- Đặt đoạn này sau <body> hoặc trước phần chính -->

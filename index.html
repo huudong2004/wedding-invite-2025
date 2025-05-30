@@ -454,10 +454,6 @@ body {
 </div>
 
 <!-- Người đã chuyển -->
-<div id="donors" class="page" style="display: none;">
-  <h2 class="color-run">Danh sách người đã chuyển khoản</h2>
-  <ul>
-    <li>Bạn Thiên Bảo - 300k 🧧</li>
     <!-- Thêm người khác tại đây -->
   </ul>
 </div>
@@ -499,7 +495,6 @@ body {
     <button onclick="showPage('address')">Địa chỉ</button>
     <button onclick="showPage('bank')">Chuyển khoản</button>
     <button onclick="showPage('contact')">Liên hệ</button>
-    <button onclick="showPage('donors')">Người đã chuyển</button>
     <button onclick="showPage('menu')">Menu Món</button>
   
   </div>
@@ -733,7 +728,9 @@ setInterval(() => {
 <script>
   document.addEventListener("click", function (e) {
     const heart = document.createElement("div");
-    heart.innerText = "💖,❤️,💗";
+    heart.innerText = "💖";
+    heart.innerText = "❤️";
+    heart.innerText = "💗"
     heart.style.position = "absolute";
     heart.style.left = e.pageX + "px";
     heart.style.top = e.pageY + "px";

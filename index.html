@@ -46,14 +46,14 @@
   font-size: 32px;
   font-weight: bold;
   text-align: center;
-  animation: flyIn 2s ease-out;
+  animation: flyIn 2.5s ease-in-out; /* chuyển từ 2s ease-out -> 2.5s ease-in-out */
   color: #e91e63;
 }
 
 @keyframes flyIn {
   0% {
     opacity: 0;
-    transform: translateY(100px);
+    transform: translateY(50px); /* trước là 100px */
   }
   100% {
     opacity: 1;
